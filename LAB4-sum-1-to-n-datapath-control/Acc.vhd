@@ -1,0 +1,212 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- PROGRAM		"Quartus II 64-Bit"
+-- VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+-- CREATED		"Sat Nov 22 15:09:08 2025"
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all; 
+
+LIBRARY work;
+
+ENTITY Acc IS 
+	PORT
+	(
+		CLK :  IN  STD_LOGIC;
+		IL :  IN  STD_LOGIC;
+		IR :  IN  STD_LOGIC;
+		Load :  IN  STD_LOGIC;
+		I :  IN  STD_LOGIC_VECTOR(0 TO 7);
+		Q :  OUT  STD_LOGIC_VECTOR(0 TO 7)
+	);
+END Acc;
+
+ARCHITECTURE bdf_type OF Acc IS 
+
+COMPONENT mux4to1
+	PORT(I3 : IN STD_LOGIC;
+		 I2 : IN STD_LOGIC;
+		 I1 : IN STD_LOGIC;
+		 I0 : IN STD_LOGIC;
+		 S1 : IN STD_LOGIC;
+		 S0 : IN STD_LOGIC;
+		 Y : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+SIGNAL	Q_ALTERA_SYNTHESIZED :  STD_LOGIC_VECTOR(7 DOWNTO 0);
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_11 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
+
+
+BEGIN 
+SYNTHESIZED_WIRE_16 <= '0';
+
+
+
+b2v_inst : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(1),
+		 I2 => IR,
+		 I1 => I(0),
+		 I0 => Q_ALTERA_SYNTHESIZED(0),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_14);
+
+
+b2v_inst1 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(2),
+		 I2 => Q_ALTERA_SYNTHESIZED(0),
+		 I1 => I(1),
+		 I0 => Q_ALTERA_SYNTHESIZED(1),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_13);
+
+
+b2v_inst10 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(6),
+		 I2 => Q_ALTERA_SYNTHESIZED(4),
+		 I1 => I(5),
+		 I0 => Q_ALTERA_SYNTHESIZED(5),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_6);
+
+
+b2v_inst11 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(7),
+		 I2 => Q_ALTERA_SYNTHESIZED(5),
+		 I1 => I(6),
+		 I0 => Q_ALTERA_SYNTHESIZED(6),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_7);
+
+
+b2v_inst12 : mux4to1
+PORT MAP(I3 => IL,
+		 I2 => Q_ALTERA_SYNTHESIZED(6),
+		 I1 => I(7),
+		 I0 => Q_ALTERA_SYNTHESIZED(7),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_8);
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(4) <= SYNTHESIZED_WIRE_5;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(5) <= SYNTHESIZED_WIRE_6;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(6) <= SYNTHESIZED_WIRE_7;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(7) <= SYNTHESIZED_WIRE_8;
+END IF;
+END PROCESS;
+
+
+b2v_inst2 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(3),
+		 I2 => Q_ALTERA_SYNTHESIZED(1),
+		 I1 => I(2),
+		 I0 => Q_ALTERA_SYNTHESIZED(2),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_12);
+
+
+b2v_inst3 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(4),
+		 I2 => Q_ALTERA_SYNTHESIZED(2),
+		 I1 => I(3),
+		 I0 => Q_ALTERA_SYNTHESIZED(3),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_11);
+
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(3) <= SYNTHESIZED_WIRE_11;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(2) <= SYNTHESIZED_WIRE_12;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(1) <= SYNTHESIZED_WIRE_13;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	Q_ALTERA_SYNTHESIZED(0) <= SYNTHESIZED_WIRE_14;
+END IF;
+END PROCESS;
+
+
+b2v_inst9 : mux4to1
+PORT MAP(I3 => Q_ALTERA_SYNTHESIZED(5),
+		 I2 => Q_ALTERA_SYNTHESIZED(3),
+		 I1 => I(4),
+		 I0 => Q_ALTERA_SYNTHESIZED(4),
+		 S1 => SYNTHESIZED_WIRE_16,
+		 S0 => Load,
+		 Y => SYNTHESIZED_WIRE_5);
+
+Q(0 TO 7) <= Q_ALTERA_SYNTHESIZED(0 TO 7);
+
+END bdf_type;

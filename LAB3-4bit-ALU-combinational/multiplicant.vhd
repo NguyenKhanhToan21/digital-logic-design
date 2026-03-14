@@ -1,0 +1,228 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- PROGRAM		"Quartus II 64-Bit"
+-- VERSION		"Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition"
+-- CREATED		"Thu Oct 30 19:41:25 2025"
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all; 
+
+LIBRARY work;
+
+ENTITY multiplicant IS 
+	PORT
+	(
+		I3 :  IN  STD_LOGIC;
+		I2 :  IN  STD_LOGIC;
+		I1 :  IN  STD_LOGIC;
+		I0 :  IN  STD_LOGIC;
+		S1 :  IN  STD_LOGIC;
+		S0 :  IN  STD_LOGIC;
+		CLK :  IN  STD_LOGIC;
+		IL :  IN  STD_LOGIC;
+		Y3 :  OUT  STD_LOGIC;
+		Y2 :  OUT  STD_LOGIC;
+		Y1 :  OUT  STD_LOGIC;
+		Y0 :  OUT  STD_LOGIC;
+		Y7 :  OUT  STD_LOGIC;
+		Y6 :  OUT  STD_LOGIC;
+		Y5 :  OUT  STD_LOGIC;
+		Y4 :  OUT  STD_LOGIC
+	);
+END multiplicant;
+
+ARCHITECTURE bdf_type OF multiplicant IS 
+
+COMPONENT mux4to1
+	PORT(I3 : IN STD_LOGIC;
+		 I2 : IN STD_LOGIC;
+		 I1 : IN STD_LOGIC;
+		 I0 : IN STD_LOGIC;
+		 S1 : IN STD_LOGIC;
+		 S0 : IN STD_LOGIC;
+		 Y : OUT STD_LOGIC
+	);
+END COMPONENT;
+
+SIGNAL	SYNTHESIZED_WIRE_12 :  STD_LOGIC;
+SIGNAL	DFF_inst8 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_13 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_14 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_15 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_16 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_17 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_3 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_4 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_5 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_6 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_18 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_19 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_7 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_8 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_9 :  STD_LOGIC;
+SIGNAL	SYNTHESIZED_WIRE_10 :  STD_LOGIC;
+
+
+BEGIN 
+Y3 <= SYNTHESIZED_WIRE_18;
+Y2 <= SYNTHESIZED_WIRE_13;
+Y1 <= SYNTHESIZED_WIRE_12;
+Y0 <= DFF_inst8;
+Y7 <= SYNTHESIZED_WIRE_17;
+Y6 <= SYNTHESIZED_WIRE_14;
+Y5 <= SYNTHESIZED_WIRE_16;
+Y4 <= SYNTHESIZED_WIRE_19;
+SYNTHESIZED_WIRE_15 <= '0';
+
+
+
+b2v_inst : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_12,
+		 I1 => I0,
+		 I0 => DFF_inst8,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_10);
+
+
+b2v_inst1 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_13,
+		 I1 => I1,
+		 I0 => SYNTHESIZED_WIRE_12,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_9);
+
+
+b2v_inst10 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_14,
+		 I1 => SYNTHESIZED_WIRE_15,
+		 I0 => SYNTHESIZED_WIRE_16,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_4);
+
+
+b2v_inst11 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_17,
+		 I1 => SYNTHESIZED_WIRE_15,
+		 I0 => SYNTHESIZED_WIRE_14,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_5);
+
+
+b2v_inst12 : mux4to1
+PORT MAP(I2 => IL,
+		 I1 => SYNTHESIZED_WIRE_15,
+		 I0 => SYNTHESIZED_WIRE_17,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_6);
+
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_19 <= SYNTHESIZED_WIRE_3;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_16 <= SYNTHESIZED_WIRE_4;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_14 <= SYNTHESIZED_WIRE_5;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_17 <= SYNTHESIZED_WIRE_6;
+END IF;
+END PROCESS;
+
+
+b2v_inst2 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_18,
+		 I1 => I2,
+		 I0 => SYNTHESIZED_WIRE_13,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_8);
+
+
+b2v_inst3 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_19,
+		 I1 => I3,
+		 I0 => SYNTHESIZED_WIRE_18,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_7);
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_18 <= SYNTHESIZED_WIRE_7;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_13 <= SYNTHESIZED_WIRE_8;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	SYNTHESIZED_WIRE_12 <= SYNTHESIZED_WIRE_9;
+END IF;
+END PROCESS;
+
+
+PROCESS(CLK)
+BEGIN
+IF (RISING_EDGE(CLK)) THEN
+	DFF_inst8 <= SYNTHESIZED_WIRE_10;
+END IF;
+END PROCESS;
+
+
+b2v_inst9 : mux4to1
+PORT MAP(I2 => SYNTHESIZED_WIRE_16,
+		 I1 => SYNTHESIZED_WIRE_15,
+		 I0 => SYNTHESIZED_WIRE_19,
+		 S1 => S1,
+		 S0 => S0,
+		 Y => SYNTHESIZED_WIRE_3);
+
+
+END bdf_type;
